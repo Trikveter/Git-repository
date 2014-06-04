@@ -84,14 +84,14 @@ public class Main {
 		
 		
 		}	
-		public class eHandler implements ActionListener {
+	/*	public class eHandler implements ActionListener {
 			JButton readButton = new JButton("Рассчитать");
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==readButton){
 					int i=Integer.parseInt(txtF[0].getText());
 					}
 				}
-			}	  
+			}	  */
 }
 
 
