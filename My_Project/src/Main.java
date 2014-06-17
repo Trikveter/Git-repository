@@ -230,7 +230,7 @@ public void matrix(){
 	c.ipady=0;
 	}
 */
- 
+  
 public void go(){
 	//buttonRead.addActionListener (this);
 	}
