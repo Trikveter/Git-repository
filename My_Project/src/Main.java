@@ -19,8 +19,8 @@ public class Main {
 	}
 int n=3;
 	int cyx=1;
-	float [][]a = new float[n+1][n+1];
-	float []b = new float[n+1];
+	int [][]a = new int[n+1][n+1];
+	int []b = new int[n+1];
 	int y=1;
 	int x=1;
 	
@@ -128,20 +128,20 @@ public void matrix(){
 	buttonRead.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
         	
-        	a[1][1]=Float.parseFloat(txtF1.getText());
-			a[1][2]=Float.parseFloat(txtF2.getText());
-			a[1][3]=Float.parseFloat(txtF3.getText());
-			a[2][1]=Float.parseFloat(txtF4.getText());
-			a[2][2]=Float.parseFloat(txtF5.getText());
-			a[2][3]=Float.parseFloat(txtF6.getText());
-			a[3][1]=Float.parseFloat(txtF7.getText());
-			a[3][2]=Float.parseFloat(txtF8.getText());
-			a[3][3]=Float.parseFloat(txtF9.getText());
+        	a[1][1]=Integer.parseInt(txtF1.getText());
+			a[1][2]=Integer.parseInt(txtF2.getText());
+			a[1][3]=Integer.parseInt(txtF3.getText());
+			a[2][1]=Integer.parseInt(txtF4.getText());
+			a[2][2]=Integer.parseInt(txtF5.getText());
+			a[2][3]=Integer.parseInt(txtF6.getText());
+			a[3][1]=Integer.parseInt(txtF7.getText());
+			a[3][2]=Integer.parseInt(txtF8.getText());
+			a[3][3]=Integer.parseInt(txtF9.getText());
 			
 			
-			b[1]=Float.parseFloat(txtFP1.getText());
-			b[2]=Float.parseFloat(txtFP2.getText());
-			b[3]=Float.parseFloat(txtFP3.getText());
+			b[1]=Integer.parseInt(txtFP1.getText());
+			b[2]=Integer.parseInt(txtFP2.getText());
+			b[3]=Integer.parseInt(txtFP3.getText());
 			
 			Det= a[1][1]*(a[2][2]*a[3][3]-a[2][3]*a[3][2])
 					-a[1][2]*(a[2][1]*a[3][3]-a[2][3]*a[3][1])
