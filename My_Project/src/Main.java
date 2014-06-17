@@ -80,7 +80,7 @@ int n=3;
     txtDetZ.setSize(320, 60);
 	txtDetZ.setLocation(10,370);}
     
-    float Det,DetX,DetY,DetZ;    
+    int Det,DetX,DetY,DetZ;    
 
 
 public void matrix(){
