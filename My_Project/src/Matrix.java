@@ -98,8 +98,7 @@ public void frame(){
 	{frame.setSize(560, 600);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setLocationRelativeTo(null);
-	frame.setLayout(null);
-	frame.setBackground(null);}
+	frame.setLayout(null);}
 	
 	
 	{frame.add(txtF1);
