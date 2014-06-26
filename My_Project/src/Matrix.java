@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class Main {
+public class Matrix {
 	JButton buttonRead=new JButton("Рассчитать") ;
 	{buttonRead.setSize(120, 30);
 	buttonRead.setLocation(210,10);}
@@ -9,10 +9,10 @@ public class Main {
 	{buttonClear.setSize(120, 30);
 	buttonClear.setLocation(210,60);}
 	
-	static Main gui=new Main();
+	static Matrix gui=new Matrix();
 	
 	public static void main(String[] args){
-		gui.matrix();
+		gui.frame();
 	}
     int n=3;
 	int [][]a = new int[n+1][n+1];
@@ -92,7 +92,7 @@ public class Main {
     int Det,DetX,DetY,DetZ;    
 
 
-public void matrix(){
+public void frame(){
 
 	JFrame frame = new JFrame("Решение матрицы методом Краммера");
 	{frame.setSize(560, 600);
