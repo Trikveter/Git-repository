@@ -1,8 +1,5 @@
 import javax.swing.*;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class Main {
 	JButton buttonRead=new JButton("Рассчитать") ;
@@ -17,8 +14,7 @@ public class Main {
 	public static void main(String[] args){
 		gui.matrix();
 	}
-int n=3;
-	int cyx=1;
+    int n=3;
 	int [][]a = new int[n+1][n+1];
 	int []b = new int[n+1];
 	int y=1;
@@ -65,20 +61,33 @@ int n=3;
 	
 	JTextArea txtDet=new JTextArea("∆");
     {txtDet.setEditable(false);
-    txtDet.setSize(320, 60);
+    txtDet.setSize(500, 60);
 	txtDet.setLocation(10,160);}
     JTextArea txtDetX=new JTextArea("∆x");
     {txtDetX.setEditable(false);
-    txtDetX.setSize(320, 60);
+    txtDetX.setSize(500, 60);
 	txtDetX.setLocation(10,230);}
     JTextArea txtDetY=new JTextArea("∆y");
     {txtDetY.setEditable(false);
-    txtDetY.setSize(320, 60);
+    txtDetY.setSize(500, 60);
 	txtDetY.setLocation(10,300);}
     JTextArea txtDetZ=new JTextArea("∆z");
     {txtDetZ.setEditable(false);
-    txtDetZ.setSize(320, 60);
+    txtDetZ.setSize(500, 60);
 	txtDetZ.setLocation(10,370);}
+    
+    JTextArea txtX=new JTextArea("X");
+    {txtX.setEditable(false);
+    txtX.setSize(120, 60);
+	txtX.setLocation(10,440);}
+    JTextArea txtY=new JTextArea("Y");
+    {txtY.setEditable(false);
+    txtY.setSize(120, 60);
+	txtY.setLocation(140,440);}
+    JTextArea txtZ=new JTextArea("Z");
+    {txtZ.setEditable(false);
+    txtZ.setSize(120, 60);
+	txtZ.setLocation(270,440);}
     
     int Det,DetX,DetY,DetZ;    
 
@@ -86,14 +95,13 @@ int n=3;
 public void matrix(){
 
 	JFrame frame = new JFrame("Решение матрицы методом Краммера");
-	{frame.setSize(360, 600);
+	{frame.setSize(560, 600);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setLocationRelativeTo(null);
 	frame.setLayout(null);
 	frame.setBackground(null);}
 	
 	
-	//{txtF[cyx]=new JTextField(""+cyx);}
 	{frame.add(txtF1);
 	frame.add(txtF2);
 	frame.add(txtF3);
@@ -116,14 +124,13 @@ public void matrix(){
 	frame.add(txtDetY);
 	frame.add(txtDetZ);
 	
+	frame.add(txtX);
+	frame.add(txtY);
+	frame.add(txtZ);
+	
 	}
 	
-	//{buttonRead.addActionListener (this);
-	//buttonClear.addActionListener (this);}
-	
-	
 	{frame.setVisible(true) ;}
-	//frame.pack();
 	
 	buttonRead.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
@@ -159,6 +166,7 @@ public void matrix(){
 					-a[1][2]*(a[2][1]*b[3]-b[2]*a[3][1])
 					+b[1]*(a[2][1]*a[3][2]-a[2][2]*a[3][1]);
 			
+			
 			if (Det!=0){
 				txtDet.setText("∆ = "+a[1][1]+"*("+a[2][2]+"*"+a[3][3]+"-"+a[2][3]+"*"+a[3][2]+")"+
 			"-"+a[1][2]+"*("+a[2][1]+"*"+a[3][3]+"-"+a[2][3]+"*"+a[3][1]+")"+
@@ -174,11 +182,18 @@ public void matrix(){
 				txtDetZ.setText("∆z = "+a[1][1]+"*("+a[2][2]+"*"+b[3]+"-"+b[2]+"*"+a[3][2]+")"+
 						"-"+a[1][2]+"*("+a[2][1]+"*"+b[3]+"-"+b[2]+"*"+a[3][1]+")"+
 						"+"+b[1]+"*("+a[2][1]+"*"+a[3][2]+"-"+a[2][2]+"*"+a[3][1]+")"+" = "+DetZ);
+				
+				txtX.setText("X = ∆x / ∆ = "+DetX/Det);
+				txtY.setText("Y = ∆y / ∆ = "+DetY/Det);
+				txtZ.setText("Z = ∆z / ∆ = "+DetZ/Det);				
+				
 			}else{
 				JOptionPane.showMessageDialog(null, "Главный определитель '∆' равен нулю. Решений нет!");
-			}
-			//int ax=DetX/Det; int ay=DetY/Det; int az=DetZ/Det;
-             
+			}  
+			
+			//int X=1,Y=1,Z=1; 
+			//X=DetX/Det; Y=DetY/Det; Z=DetZ/Det;
+			
         }
    });
 	
@@ -200,6 +215,9 @@ public void matrix(){
         	txtDetX.setText("∆x");
         	txtDetY.setText("∆y");
         	txtDetZ.setText("∆z");
+        	txtX.setText("X = ∆x / ∆ ");
+        	txtY.setText("Y = ∆y / ∆ ");
+        	txtZ.setText("Z = ∆z / ∆ ");
         	
         	for (int y=1,x=1;y<=n&x<=n;x++){
         		a[y][x]=1;
@@ -213,42 +231,10 @@ public void matrix(){
         	}   
         }
    });
-
-
-}
-/*GridBagConstraints c=new GridBagConstraints();
-{   c.gridx=x;
-	c.gridy=y;
-	c.gridwidth=1;
-	c.gridheight=1;
-	c.weightx=1;
-	c.weighty=1;
-	c.anchor=GridBagConstraints.CENTER;
-	c.fill=GridBagConstraints.HORIZONTAL;
-	c.insets=new Insets(1,1,1,1);
-	c.ipadx=0;
-	c.ipady=0;
-	}
-*/
-  
+	
+}  
 public void go(){
-	//buttonRead.addActionListener (this);
 	}
-/*
-public void actionPerformed (ActionEvent event) {
-	
-	//for(y=1,cyx=1;y < a.length; y++){
-	//	for(x=1;x < a[y].length; x++){
-			
-		//	}
-	//	}
-	//buttonRead.setText("Рассчитать");
-	
-//	a[1][3]=Integer.parseInt(txtF[3].getText());
-//	txtF[2].setText(""+a[1][3]);
-	
-	}*/
-
 }
 
 
