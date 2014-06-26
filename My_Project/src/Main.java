@@ -227,10 +227,7 @@ public void matrix(){
         	}   
         }
    });
-	
-}  
-public void go(){
-	}
+	}  
 }
 
 
