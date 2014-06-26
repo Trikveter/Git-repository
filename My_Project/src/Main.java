@@ -190,10 +190,6 @@ public void matrix(){
 			}else{
 				JOptionPane.showMessageDialog(null, "Главный определитель '∆' равен нулю. Решений нет!");
 			}  
-			
-			//int X=1,Y=1,Z=1; 
-			//X=DetX/Det; Y=DetY/Det; Z=DetZ/Det;
-			
         }
    });
 	
